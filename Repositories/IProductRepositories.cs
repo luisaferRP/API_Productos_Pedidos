@@ -16,8 +16,6 @@ namespace API_Productos_Pedidos.Repositories
 
         Task<Product> Update(Product product);
 
-        Task <bool> Delete(int id);  
-
-        //Task<IEnumerable<Product>> CheckExistence(int id);      
+        Task <bool> Delete(int id);   
     }
 }

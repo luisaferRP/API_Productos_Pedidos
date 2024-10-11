@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API_Productos_Pedidos.Data;
 using API_Productos_Pedidos.Models;
 using API_Productos_Pedidos.Repositories;
@@ -13,7 +9,8 @@ namespace API_Productos_Pedidos.Services
     {
         private readonly ApplicationDBContext _dbContext;
 
-        protected ProductServices(ApplicationDBContext dbContext){
+        public ProductServices(ApplicationDBContext dbContext)
+        {
             _dbContext = dbContext;
         }
 
@@ -105,7 +102,7 @@ namespace API_Productos_Pedidos.Services
                 {
                     return productUpdate;
                 }
-                
+
                 productUpdate.Name = product.Name;
                 productUpdate.Description = product.Description;
                 productUpdate.Price = product.Price;
