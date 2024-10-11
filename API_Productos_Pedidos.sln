@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_Productos_Pedidos", "API_Productos_Pedidos.csproj", "{13908ED5-7842-4F2B-852F-36010FE77BFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API_Productos_Pedidos", "API_Productos_Pedidos.csproj", "{2D8C449F-36D1-469D-9377-E225AD60D4F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13908ED5-7842-4F2B-852F-36010FE77BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{13908ED5-7842-4F2B-852F-36010FE77BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{13908ED5-7842-4F2B-852F-36010FE77BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{13908ED5-7842-4F2B-852F-36010FE77BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D8C449F-36D1-469D-9377-E225AD60D4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D8C449F-36D1-469D-9377-E225AD60D4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D8C449F-36D1-469D-9377-E225AD60D4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D8C449F-36D1-469D-9377-E225AD60D4F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {9901681B-EB29-44E5-9E9A-39A38B74A245}
+		SolutionGuid = {59B94581-B675-4837-A3D3-178C73A712DB}
 	EndGlobalSection
 EndGlobal

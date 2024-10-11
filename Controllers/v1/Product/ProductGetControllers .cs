@@ -5,7 +5,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
     [ApiController]
-    [Route("api/v1/")]
+    [Route("api/v1/product")]
     public class ProductGetControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
     {
         [HttpGet]

@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
     [ApiController]
-    [Route("api/v1/updateProduct")]
+    [Route("api/v1/product/updateProduct")]
     public class ProductUpdateControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
     {
         [HttpPut]
@@ -46,7 +46,7 @@ namespace API_Productos_Pedidos.Controllers.v1.Product
                 return Ok();
 
             }catch{
-                
+
                 return BadRequest("Ocurrio un error");
             }
         }

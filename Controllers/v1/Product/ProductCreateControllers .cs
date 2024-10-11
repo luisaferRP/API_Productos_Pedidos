@@ -11,7 +11,7 @@ using API_Productos_Pedidos.DTOS.request;
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
     [ApiController]
-    [Route("api/v1/create/")]
+    [Route("api/v1/product/create")]
     public class ProductCreateControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
     {
         [HttpPost]

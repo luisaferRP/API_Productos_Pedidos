@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using API_Productos_Pedidos.Data;
 using API_Productos_Pedidos.Models;
 using API_Productos_Pedidos.Repositories;
@@ -5,44 +9,61 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API_Productos_Pedidos.Services
 {
-    public class ProductServices(ApplicationDBContext dbContext) : IProductRepositories
+    public class CategoryServices(ApplicationDBContext dbContext) : ICategoryRepositories
     {
         private readonly ApplicationDBContext _dbContext = dbContext;
 
-        public async Task Add(Product product)
+        public async Task Add(Category category)
         {
-            if (product == null)
+            if (category == null)
             {
-                throw new ArgumentNullException(nameof(product), "El producto no puede ser nulo.");
+                throw new ArgumentNullException(nameof(category), "La categoria no puede ser nulo.");
             }
 
             try
             {
-                await _dbContext.Products.AddAsync(product);
+                _dbContext.Categories.Add(category);
                 await _dbContext.SaveChangesAsync();
             }
             catch (Exception ex)
             {
                 throw new Exception($"¡Ups! Ocurrio un error{ex.Message}");
-            }    
+            }  
+           
         }
 
         public async Task<bool> Delete(int id)
         {
             try
             {
-                var foundProduct = await GetById(id);
+                var foundCategory = await GetById(id);
 
-                if (foundProduct == null)
+                if (foundCategory == null)
                 {
                     return false;
                     
                 }
 
-                _dbContext.Products.Remove(foundProduct);
+                _dbContext.Categories.Remove(foundCategory);
                 await _dbContext.SaveChangesAsync();
+
                 return true;
               
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"¡Ups! Ocurrio un error {ex.Message}");
+            }
+           
+        }
+
+        public async Task<IEnumerable<Category>> GetAll()
+        {
+            try
+            {
+                var allCategory = await _dbContext.Categories.ToArrayAsync();
+                return allCategory;
+                
             }
             catch (Exception ex)
             {
@@ -51,62 +72,47 @@ namespace API_Productos_Pedidos.Services
             
         }
 
-        public async Task<IEnumerable<Product>> GetAll()
+        public async Task<Category> GetById(int id)
         {
             try
             {
-                var allProducts = await _dbContext.Products.ToArrayAsync();
-                return allProducts;
+                var FoundProducts = await _dbContext.Categories.FirstOrDefaultAsync(x => x.Id == id);
+                return FoundProducts;
                 
             }
             catch (Exception ex)
             {
-                throw new Exception($"¡Ups! Ocurrio un error {ex.Message}");
+                throw new Exception($"Ups! Ocurrio un error {ex.Message}");
             }
         }
 
-        public async Task<Product> GetById(int id)
+        public async Task<Category> Update(Category category)
         {
-            try
+            if (category == null)
             {
-                var FoundProducts = await _dbContext.Products.FirstOrDefaultAsync(x => x.Id == id);
-                return FoundProducts;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"¡Ups! Ocurrio un error {ex.Message}");
-            }
-        }
-
-        public async Task<Product> Update(Product product)
-        {
-            if (product == null)
-            {
-                throw new ArgumentNullException(nameof(product), "El producto no puede ser nulo.");
+                throw new ArgumentNullException(nameof(category), "El categoria no puede ser nulo.");
             }
             try
             {
-                var idProduct = product.Id;
-                var productUpdate = await GetById(idProduct);
+                var idcategory = category.Id;
+                var categoryUpdate = await GetById(idcategory);
 
-                if (productUpdate == null)
+                if (categoryUpdate == null)
                 {
-                    return productUpdate;
+                    return categoryUpdate;
                 }
 
-                productUpdate.Name = product.Name;
-                productUpdate.Description = product.Description;
-                productUpdate.Price = product.Price;
-                productUpdate.Stock = product.Stock;
-                productUpdate.CategoryId = product.CategoryId;
+                categoryUpdate.Name = category.Name;
+                categoryUpdate.Description = category.Description;
 
                 await _dbContext.SaveChangesAsync();
-                return productUpdate;
+                return categoryUpdate;
             }
             catch (Exception ex)
             {
                 throw new Exception($"¡Ups! Ocurrio un error {ex.Message}");
             }
+            
         }
     }
 }

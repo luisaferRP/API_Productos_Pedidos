@@ -2,32 +2,33 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_Productos_Pedidos.Models;
 using API_Productos_Pedidos.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace API_Productos_Pedidos.Controllers.v1.Product
+namespace API_Productos_Pedidos.Controllers.v1.Category
 {
     [ApiController]
-    [Route("api/v1/product/delete")]
-    public class ProductDeleteControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
+    [Route("api/v1/category/delete")]
+    public class CategoryDeleteControllers(ICategoryRepositories categoryRepositories) : CategoryControllers(categoryRepositories)
     {
         [HttpDelete("/{id}")]
         [SwaggerOperation(
-            Summary = "Delete Product by id",
-            Description ="This endpoint is for delete Product  by id"
+            Summary = "Delete category by id",
+            Description ="This endpoint is for delete category  by id"
         )]
-        [SwaggerResponse(200,"Product deleted successfully")]
+        [SwaggerResponse(200,"category deleted successfully")]
         [SwaggerResponse(400,"An error occurred")]
-        [SwaggerResponse(404,"Product not found")]
+        [SwaggerResponse(404,"category not found")]
         public async Task<ActionResult> Delete(int id)
         {
             try
             {
-                var foundProduct = await productRepositories.Delete(id);
+                var foundProduct = await categoryRepositories.Delete(id);
                 if (foundProduct == false)
                 {
-                    return NotFound("No se encontró el producto");
+                    return NotFound("No se encontró la categoria");
                 }
 
                 return Ok();
