@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API_Productos_Pedidos.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
@@ -19,7 +20,7 @@ namespace API_Productos_Pedidos.Controllers.v1.Product
         [SwaggerResponse(200,"Product deleted successfully")]
         [SwaggerResponse(400,"An error occurred")]
         [SwaggerResponse(404,"Product not found")]
-        public async Task<OkResult> Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             try
             {
