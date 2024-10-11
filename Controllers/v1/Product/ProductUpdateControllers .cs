@@ -10,10 +10,10 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
     [ApiController]
-    [Route("api/v1/product/updateProduct")]
+    [Route("api/v1/product")]
     public class ProductUpdateControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
     {
-        [HttpPut]
+        [HttpPut("/updateProduct")]
         [SwaggerOperation(
             Summary = "Update Product by id",
             Description ="This endpoint is for update Product by id"

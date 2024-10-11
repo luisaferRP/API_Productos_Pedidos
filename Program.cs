@@ -24,6 +24,7 @@ builder.Services.AddDbContext<ApplicationDBContext>(options =>
     options.UseMySql(connectionString, ServerVersion.Parse("8.0.20-mysql")));
 
 builder.Services.AddScoped<IProductRepositories, ProductServices>();
+builder.Services.AddScoped<ICategoryRepositories, CategoryServices>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

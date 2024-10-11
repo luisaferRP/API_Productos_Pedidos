@@ -33,7 +33,7 @@ namespace API_Productos_Pedidos.Controllers.v1.Product
             }
         }
 
-        [HttpGet("/{id}")]
+        [HttpGet("/search/{id}")]
         [SwaggerOperation(
             Summary = "Get for id product",
             Description ="This endpoint is for get for id product"

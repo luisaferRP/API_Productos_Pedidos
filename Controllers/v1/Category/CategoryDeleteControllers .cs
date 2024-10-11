@@ -10,7 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace API_Productos_Pedidos.Controllers.v1.Category
 {
     [ApiController]
-    [Route("api/v1/category/delete")]
+    [Route("api/v1/category")]
     public class CategoryDeleteControllers(ICategoryRepositories categoryRepositories) : CategoryControllers(categoryRepositories)
     {
         [HttpDelete("/{id}")]

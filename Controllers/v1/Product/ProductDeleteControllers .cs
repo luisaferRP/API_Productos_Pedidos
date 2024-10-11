@@ -9,10 +9,10 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace API_Productos_Pedidos.Controllers.v1.Product
 {
     [ApiController]
-    [Route("api/v1/product/delete")]
+    [Route("api/v1/product")]
     public class ProductDeleteControllers(IProductRepositories productRepositories) : ProductControllers(productRepositories)
     {
-        [HttpDelete("/{id}")]
+        [HttpDelete("/delete/{id}")]
         [SwaggerOperation(
             Summary = "Delete Product by id",
             Description ="This endpoint is for delete Product  by id"
